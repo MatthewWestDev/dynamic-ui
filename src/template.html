@@ -1,11 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Good Stuff is Happnin'</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic UI Odin</title>
+  </head>
+  <body>
+    <header>
+      <h1>Good Stuff is Happnin'</h1>
+    </header>
+    <main>
+      <nav aria-label="main">
+        <ul>
+          <li><a href="#">Testing One</a></li>
+          <li class="has-submenu">
+            <a href="#" aria-expanded="false">Testing Two</a>
+            <ul>
+              <li><a href="#">Test Two One</a></li>
+              <li><a href="#">Test Two Two</a></li>
+              <li><a href="#">Test Two Three</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Testing Three</a></li>
+        </ul>
+      </nav>
+    </main>
+  </body>
 </html>
