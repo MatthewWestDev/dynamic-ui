@@ -53,6 +53,9 @@ web_modules/
 
 # Optional eslint cache
 .eslintcache
+.prettierignore
+.prettierrc
+eslint.config.mjs
 
 # Optional stylelint cache
 .stylelintcache
