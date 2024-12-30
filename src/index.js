@@ -17,3 +17,20 @@ for (const flyoutItem of flyoutItems) {
     }, 800);
   });
 }
+
+const slides = document.querySelectorAll(".carousel-slide");
+console.log(slides.length);
+let slideIndex = 0;
+showSlide();
+function showSlide() {
+  slideIndex++;
+  console.log(slideIndex);
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  for (const slide of slides) {
+    slide.style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlide, 5000);
+}
