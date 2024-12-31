@@ -19,18 +19,54 @@ for (const flyoutItem of flyoutItems) {
 }
 
 const slides = document.querySelectorAll(".carousel-slide");
-console.log(slides.length);
-let slideIndex = 0;
-showSlide();
-function showSlide() {
+const tabs = Array.from(document.querySelectorAll(".tab"));
+// console.log(slides.length);
+let slideIndex = 1;
+showSlide(slideIndex);
+
+for (const tab of tabs) {
+  tab.addEventListener("click", () => {
+    const tabIndex = tabs.indexOf(tab);
+    console.log(`tabIndex ${tabIndex}`);
+    showSlide(tabIndex);
+  });
+}
+
+const previousBtn = document.querySelector(".previous");
+previousBtn.addEventListener("click", () => {
+  moveSlide(slideIndex - 1);
+});
+
+const nextBtn = document.querySelector(".next");
+nextBtn.addEventListener("click", () => {
+  console.log(`Next clicked, ${slideIndex}`);
+  moveSlide(slideIndex + 1);
+});
+
+function moveSlide(num) {
+  console.log(`Moving to slide ${num}`);
+  slideIndex = num;
+  showSlide(num);
+}
+
+// just a starting point
+function autoSlide() {
   slideIndex++;
-  console.log(slideIndex);
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
+  setTimeout(showSlide, 5000, slideIndex);
+}
+
+function showSlide(slideNum) {
+  if (slideNum > slides.length) {
+    console.log(`Rolling ahead to the first slide`);
+    slideNum = 1;
+  }
+  if (slideNum < 1) {
+    console.log(`Rolling back to the last slide`);
+    slideNum = slides.length;
   }
   for (const slide of slides) {
     slide.style.display = "none";
   }
-  slides[slideIndex - 1].style.display = "block";
-  setTimeout(showSlide, 5000);
+  slideIndex = slideNum;
+  slides[slideNum - 1].style.display = "block";
 }
